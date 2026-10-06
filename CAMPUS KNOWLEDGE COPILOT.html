@@ -1,0 +1,703 @@
+Campus Knowledge Copilot - index.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Campus Knowledge Copilot</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #1e3a8a;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 25px;
+        }
+
+        header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* MAIN CONTAINER */
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        /* DASHBOARD */
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 25px;
+        }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .sidebar h2 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #e8eefc;
+            color: #1e3a8a;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .sidebar button:hover {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        /* CONTENT */
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .content h2 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
+
+        /* SEARCH */
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            padding: 15px 25px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .search-box button:hover {
+            background: #1d4ed8;
+        }
+
+        /* ANSWER */
+
+        .answer-box {
+            background: #f0f7ff;
+            border-left: 5px solid #2563eb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .answer-box h3 {
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+
+        /* SOURCES */
+
+        .sources {
+            margin-top: 20px;
+        }
+
+        .source-card {
+            border: 1px solid #e5e7eb;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            background: #fafafa;
+        }
+
+        .source-card strong {
+            color: #1e3a8a;
+        }
+
+        /* UPLOAD */
+
+        .upload-section {
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px dashed #93c5fd;
+            border-radius: 10px;
+            text-align: center;
+            background: #eff6ff;
+        }
+
+        .upload-section input {
+            margin-top: 15px;
+        }
+
+        /* EXAMPLES */
+
+        .examples {
+            margin-top: 30px;
+        }
+
+        .examples button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: 1px solid #bfdbfe;
+            background: white;
+            color: #1e40af;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .examples button:hover {
+            background: #dbeafe;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #6b7280;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 20px;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div>
+            <h1>🎓 Campus Knowledge Copilot</h1>
+            <p>Institutional Information Assistant</p>
+        </div>
+
+        <div>
+            <span>Student Portal</span>
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <div class="container">
+
+        <div class="dashboard">
+
+
+            <!-- SIDEBAR -->
+
+            <aside class="sidebar">
+
+                <h2>📚 Knowledge Base</h2>
+
+                <button onclick="showSection('ask')">
+                    💬 Ask Question
+                </button>
+
+                <button onclick="showSection('documents')">
+                    📄 Documents
+                </button>
+
+                <button onclick="showSection('examples')">
+                    💡 Example Questions
+                </button>
+
+                <button onclick="clearAnswer()">
+                    🗑️ Clear Answer
+                </button>
+
+            </aside>
+
+
+            <!-- MAIN CONTENT -->
+
+            <main class="content">
+
+                <h2>Ask the Campus Knowledge Copilot</h2>
+
+                <p class="description">
+                    Ask questions about attendance,
+                    examinations, scholarships, timetables,
+                    placements, regulations and other
+                    institutional information.
+                </p>
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="question"
+                        placeholder="Example: What is the minimum attendance requirement?"
+                    >
+
+                    <button onclick="askQuestion()">
+                        Ask
+                    </button>
+
+                </div>
+
+
+                <!-- ANSWER -->
+
+                <div
+                    id="answerSection"
+                    style="display:none;"
+                >
+
+                    <div class="answer-box">
+
+                        <h3>🤖 Answer</h3>
+
+                        <p id="answerText"></p>
+
+                    </div>
+
+
+                    <!-- SOURCES -->
+
+                    <div class="sources">
+
+                        <h3>📚 Supporting Sources</h3>
+
+                        <div
+                            class="source-card"
+                            id="sourceCard"
+                        >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DOCUMENT UPLOAD -->
+
+                <div
+                    class="upload-section"
+                    id="documents"
+                >
+
+                    <h3>📄 Upload Institutional Documents</h3>
+
+                    <p>
+                        Upload PDF, DOCX, TXT or CSV files.
+                    </p>
+
+                    <input
+                        type="file"
+                        id="fileUpload"
+                        multiple
+                        accept=".pdf,.docx,.txt,.csv"
+                    >
+
+                    <br><br>
+
+                    <button
+                        onclick="uploadDocuments()"
+                    >
+                        Upload Documents
+                    </button>
+
+                    <p id="uploadStatus"></p>
+
+                </div>
+
+
+                <!-- EXAMPLES -->
+
+                <div
+                    class="examples"
+                    id="examples"
+                >
+
+                    <h3>💡 Example Questions</h3>
+
+                    <button onclick="setQuestion(
+                        'What is the minimum attendance requirement?'
+                    )">
+                        Attendance Requirement
+                    </button>
+
+                    <button onclick="setQuestion(
+                        'What documents are required for scholarship renewal?'
+                    )">
+                        Scholarship Documents
+                    </button>
+
+                    <button onclick="setQuestion(
+                        'When are the semester examinations?'
+                    )">
+                        Exam Timetable
+                    </button>
+
+                    <button onclick="setQuestion(
+                        'What are the placement eligibility requirements?'
+                    )">
+                        Placement Eligibility
+                    </button>
+
+                    <button onclick="setQuestion(
+                        'What is the examination eligibility criteria?'
+                    )">
+                        Exam Eligibility
+                    </button>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            Campus Knowledge Copilot © 2026
+        </p>
+
+        <p>
+            Answers should be based only on
+            authorized institutional information.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function askQuestion() {
+
+            const question =
+                document.getElementById(
+                    "question"
+                ).value.trim();
+
+            const answerSection =
+                document.getElementById(
+                    "answerSection"
+                );
+
+            const answerText =
+                document.getElementById(
+                    "answerText"
+                );
+
+            const sourceCard =
+                document.getElementById(
+                    "sourceCard"
+                );
+
+
+            if (question === "") {
+
+                alert(
+                    "Please enter a question."
+                );
+
+                return;
+            }
+
+
+            /*
+             * DEMO ANSWERS
+             *
+             * In the final version these answers
+             * will come from the backend/RAG system.
+             */
+
+            let answer =
+                "The requested information was not found in the institutional knowledge base.";
+
+            let source =
+                "No supporting document found.";
+
+
+            const q =
+                question.toLowerCase();
+
+
+            if (
+                q.includes("attendance")
+            ) {
+
+                answer =
+                    "According to the institutional attendance policy, students must maintain the minimum attendance requirement specified by the institution.";
+
+                source =
+                    "Attendance Policy.pdf — Page 4";
+
+            }
+
+
+            else if (
+                q.includes("scholarship")
+            ) {
+
+                answer =
+                    "Students must submit the documents specified in the scholarship guidelines for renewal.";
+
+                source =
+                    "Scholarship Guidelines.pdf — Page 3";
+
+            }
+
+
+            else if (
+                q.includes("exam") ||
+                q.includes("examination")
+            ) {
+
+                answer =
+                    "Please refer to the examination timetable and examination regulations for the applicable examination schedule and eligibility requirements.";
+
+                source =
+                    "Examination Guidelines.pdf — Page 6";
+
+            }
+
+
+            else if (
+                q.includes("placement")
+            ) {
+
+                answer =
+                    "Placement eligibility depends on the requirements specified in the institution's placement policy.";
+
+                source =
+                    "Placement Policy.pdf — Page 5";
+
+            }
+
+
+            answerText.innerText =
+                answer;
+
+            sourceCard.innerHTML =
+                "<strong>Document:</strong> "
+                + source;
+
+
+            answerSection.style.display =
+                "block";
+
+        }
+
+
+        function setQuestion(text) {
+
+            document.getElementById(
+                "question"
+            ).value = text;
+
+        }
+
+
+        function clearAnswer() {
+
+            document.getElementById(
+                "answerSection"
+            ).style.display =
+                "none";
+
+            document.getElementById(
+                "question"
+            ).value = "";
+
+        }
+
+
+        function uploadDocuments() {
+
+            const files =
+                document.getElementById(
+                    "fileUpload"
+                ).files;
+
+            const status =
+                document.getElementById(
+                    "uploadStatus"
+                );
+
+
+            if (files.length === 0) {
+
+                status.innerText =
+                    "Please select documents.";
+
+                status.style.color =
+                    "red";
+
+                return;
+
+            }
+
+
+            status.innerText =
+                files.length
+                + " document(s) selected successfully.";
+
+            status.style.color =
+                "green";
+
+        }
+
+
+        function showSection(section) {
+
+            if (section === "documents") {
+
+                document.getElementById(
+                    "documents"
+                ).scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+
+            else if (section === "examples") {
+
+                document.getElementById(
+                    "examples"
+                ).scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+
+            else {
+
+                document.getElementById(
+                    "question"
+                ).focus();
+
+            }
+
+        }
+
+
+        /*
+         * Allow ENTER key to ask question
+         */
+
+        document.getElementById(
+            "question"
+        ).addEventListener(
+            "keypress",
+            function(event) {
+
+                if (
+                    event.key === "Enter"
+                ) {
+
+                    askQuestion();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
+
